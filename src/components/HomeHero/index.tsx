@@ -1,5 +1,5 @@
 import { Container, TextContainer, InfosContainer, CodeItem } from './styles';
-import picture from '../../assets/foto.jpg';
+import picture from '../../assets/foto.png';
 
 export function HomeHero() {
   return (
