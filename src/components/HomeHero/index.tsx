@@ -28,7 +28,7 @@ export function HomeHero() {
           <CodeItem>
             <span className="purple">Cargo</span> {'\u007B'}
             <div>
-              Função: <span className="blue">Desenvolvedor Web Front-end,</span>
+              Função: <span className="blue">Dev Web Front-end,</span>
             </div>
             <div>
               Empresa: <span className="blue">Agência RosaDV</span>
