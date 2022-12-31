@@ -93,7 +93,7 @@ font-weight: 300;
 color: #fff;
 width: 24rem;
 align-self: flex-start;
-transition: 1s;
+transition: 1s !important;
 
 @media(max-width: 1450px) {
   width: 18rem;

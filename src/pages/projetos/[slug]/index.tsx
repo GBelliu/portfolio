@@ -1,35 +1,87 @@
-import React from 'react';
-import BannerProjejto from '../../../components/BannerProjeto';
+import { GetStaticPaths, GetStaticProps } from 'next';
+import Prismic from '@prismicio/client';
+import { useRouter } from 'next/router';
+import Head from 'next/head';
+import BannerProjeto from '../../../components/BannerProjeto';
 import { Header } from '../../../components/Header';
-
+import { getPrismicClient } from '../../../services/prismic';
 import { ProjetoContainer } from '../../../styles/ProjetoStyles';
+import LoadingScreen from '../../../components/LoadingScreen';
 
-export default function Projeto() {
+interface IProjeto {
+  slug: string;
+  title: string;
+  type: string;
+  description: string;
+  link: string;
+  thumbnail: string;
+}
+
+interface ProjetoProps {
+  projeto: IProjeto;
+}
+
+export default function Projeto({ projeto }: ProjetoProps) {
+  const router = useRouter();
+
+  if (router.isFallback) {
+    return <LoadingScreen />;
+  }
+
   return (
     <ProjetoContainer>
       <Header />
-      <BannerProjejto
-        title="Porjeto 01"
-        type="Website"
-        imgUrl="https://i.pinimg.com/originals/3c/77/39/3c773906ccfbb353bb1cad43a8eda8ca.png"
+      <BannerProjeto
+        title={projeto.title}
+        type={projeto.type}
+        imgUrl={projeto.thumbnail}
       />
       <main>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure veniam
-          eveniet expedita. Molestiae et ipsa sit asperiores. Hic, ipsum!
-          Perferendis accusantium fugit consequatur? Error nesciunt delectus
-          eaque distinctio reiciendis et eum neque quia. In saepe tempore
-          provident amet, ullam placeat? Ut aliquid culpa error doloribus
-          voluptates voluptatem, quo in sit dolorem doloremque! Neque nam eos
-          saepe nihil quibusdam officiis aperiam, magni alias deleniti atque.
-          Reiciendis et nemo similique velit possimus laboriosam assumenda,
-          veritatis temporibus ipsum fugiat, distinctio sequi saepe vero?
-        </p>
+        <p>{projeto.description}</p>
 
         <button type="button">
-          <a href="#">Ver projeto online</a>
+          <a href={projeto.link}>Ver projeto online</a>
         </button>
       </main>
     </ProjetoContainer>
   );
 }
+
+export const getStaticPaths: GetStaticPaths = async () => {
+  const prismic = getPrismicClient();
+  const projetos = await prismic.query([
+    Prismic.predicates.at('document.type', 'teste')
+  ]);
+
+  const paths = projetos.results.map(projeto => ({
+    params: {
+      slug: projeto.uid
+    }
+  }));
+
+  return {
+    paths,
+    fallback: true
+  };
+};
+
+export const getStaticProps: GetStaticProps = async context => {
+  const prismic = getPrismicClient();
+  const { slug } = context.params;
+
+  const response = await prismic.getByUID('teste', String(slug), {});
+
+  const projeto = {
+    slug: response.uid,
+    title: response.data.title,
+    type: response.data.type,
+    description: response.data.description,
+    link: response.data.link.url,
+    thumbnail: response.data.thumbnail.url
+  };
+
+  return {
+    props: { projeto },
+    revalidate: 86400
+  };
+};

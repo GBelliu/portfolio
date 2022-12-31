@@ -1,9 +1,9 @@
 import { Container, TextContainer, InfosContainer, CodeItem } from './styles';
-import picture from '../../assets/foto.png';
+import picture from '../../assets/perfila.png';
 
 export function HomeHero() {
   return (
-    <Container>
+    <Container data-aos="fade-up">
       <img src={picture} alt="Guilherme" />
       <div>
         <TextContainer>
@@ -11,7 +11,7 @@ export function HomeHero() {
           <h2>Me chamo Guilherme</h2>
         </TextContainer>
         <InfosContainer>
-          <CodeItem>
+          <CodeItem data-aos="zoom-in">
             <span className="comment">//Minha apresentação</span>
             <span className="purple">Infos</span> {'\u007B'}
             <div>
@@ -21,11 +21,11 @@ export function HomeHero() {
               Sobrenome: <span className="blue">Bellissimo Barbosa,</span>
             </div>
             <div>
-              Idade: <span className="blue">19 anos</span>
+              Idade: <span className="blue">20 anos</span>
             </div>
             {'\u007D'}
           </CodeItem>
-          <CodeItem>
+          <CodeItem data-aos="zoom-in">
             <span className="purple">Cargo</span> {'\u007B'}
             <div>
               Função: <span className="blue">Dev Web Front-end,</span>
