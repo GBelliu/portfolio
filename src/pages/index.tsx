@@ -1,4 +1,6 @@
 import Prismic from '@prismicio/client';
+import Aos from 'aos';
+import 'aos/dist/aos.css';
 import { HomeContainer } from '../styles/HomeStyles';
 import { Header } from '../components/Header';
 import { HomeHero } from '../components/HomeHero';
@@ -10,8 +12,6 @@ import Footer from '../components/Footer';
 import { getPrismicClient } from '../services/prismic';
 import { GetStaticProps } from 'next';
 import { useEffect } from 'react';
-import Aos from 'aos';
-import 'aos/dist/aos.css';
 
 interface IProjeto {
   slug: string;
