@@ -11,7 +11,7 @@ import { getPrismicClient } from '../services/prismic';
 import { GetStaticProps } from 'next';
 import { useEffect } from 'react';
 import Aos from 'aos';
-import 'aos/dist/aos.css';
+import '../../node_modules/aos/dist/aos.css';
 
 interface IProjeto {
   slug: string;
