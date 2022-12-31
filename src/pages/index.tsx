@@ -11,7 +11,7 @@ import { getPrismicClient } from '../services/prismic';
 import { GetStaticProps } from 'next';
 import { useEffect } from 'react';
 import Aos from 'aos';
-import '../../node_modules/aos/dist/aos.css';
+import 'aos/dist/aos.css';
 
 interface IProjeto {
   slug: string;
@@ -27,9 +27,9 @@ interface HomeProps {
 }
 
 export default function Home({ projetos }: HomeProps) {
-  useEffect(() => {
-    Aos.init({ duration: 1500 });
-  }, []);
+  // useEffect(() => {
+  //   Aos.init({ duration: 1500 });
+  // }, []);
 
   return (
     <HomeContainer>
