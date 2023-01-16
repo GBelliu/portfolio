@@ -5,11 +5,10 @@ import theme from '../styles/theme';
 
 function MyApp({ Component, pageProps }) {
   return (
-    // <ThemeProvider theme={theme}>
-    //   <Component {...pageProps} />
-    //   <GlobalStyles />
-    // </ThemeProvider>
-    <h1>aaaa</h1>
+    <ThemeProvider theme={theme}>
+      <Component {...pageProps} />
+      <GlobalStyles />
+    </ThemeProvider>
   );
 }
 
