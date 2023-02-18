@@ -5,22 +5,27 @@ import { Container } from './styles';
 function Experiencias() {
   return (
     <Container>
-      <SectionTitle title="03 anos" description="de experiência" />
+      <SectionTitle title="02 anos" description="de experiência" />
       <section>
         <ExperienciaItem
-          year="2020"
-          title="Dev Front-end"
-          description="Teste de site e portfolio, testando os conteudos e layout do site"
+          year="2021"
+          title="Estagiário de Dev Web"
+          description="Elaboração de projetos, atuando com a área de front-end, utilizando HTML, CSS, JS e frameworks como o Tailwind, ligado ao CSS, e o Blade, ligado ao PHP."
         />
         <ExperienciaItem
-          year="2021"
-          title="Dev Front-end"
-          description="Teste de site e portfolio, testando os conteudos e layout do site"
+          year="2021 - 2022"
+          title="Assistente de Mkt & Dev Front-end"
+          description="Acompanhamento de campanhas do Google ADS e relatórios do Google Analytics e criação de Landing Pages com React.js e Next.js"
         />
         <ExperienciaItem
           year="2022"
           title="Dev Front-end"
-          description="Teste de site e portfolio, testando os conteudos e layout do site"
+          description="Projeto de uma ferramenta de automatização do fluxo de antedimento e venda, com React.js, Redux, TypeScript, Bootstrap e outras tecnologias"
+        />
+        <ExperienciaItem
+          year="2022 - 2023"
+          title="Dev Front-end"
+          description="Criação e gerenciamento de protótipos (Figma), e sites (React.js | Next.js | WordPress) para clientes da agência."
         />
       </section>
     </Container>

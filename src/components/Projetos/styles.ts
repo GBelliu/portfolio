@@ -120,6 +120,7 @@ export const ProjetoContainer = styled.div<ProjetoProps>`
         color: ${({ theme }) => theme.primary};
         font-size: 2.5rem;
         text-shadow: -4px 5px 22px #11172b;
+
       }
       h2 {
         color: ${({ theme }) => theme.secondary};
@@ -212,6 +213,7 @@ export const ProjetoContainer = styled.div<ProjetoProps>`
       }
     }
     > section > div.text {
+      right: 0rem;
       h1 {
         font-size: 1.5rem;
       }

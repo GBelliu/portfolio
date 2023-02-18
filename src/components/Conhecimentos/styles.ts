@@ -10,13 +10,14 @@ width: 100%;
   justify-content: center;
   gap: 8rem;
 
-  @media(max-width:1000px) {
+  @media(max-width:1400px) {
     gap: 5rem;
   }
-  @media(max-width:700) {
+  @media(max-width:1200px) {
     gap: 3rem;
     flex-wrap: wrap;
     margin-top: 5rem;
+
   }
 }
 `;
@@ -61,4 +62,6 @@ svg {
       height: 5rem;
     }
   }
+
+
 `;
