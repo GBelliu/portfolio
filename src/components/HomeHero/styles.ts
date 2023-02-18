@@ -121,7 +121,7 @@ span.purple {
   color: #c38cdd;
 }
 span.blue {
-  color: #7ac7c3;
+  color: #F6F99E;
 }
 
 span.comment {

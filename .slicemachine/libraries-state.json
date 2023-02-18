@@ -71,7 +71,13 @@
           "fileName": "index",
           "extension": "js"
         },
-        "screenshotPaths": {}
+        "screenshotPaths": {
+          "default": {
+            "path": "C:\\projects\\portfolio\\portfolio\\slices\\Projeto1\\default\\preview.jpeg",
+            "width": 1080,
+            "height": 1350
+          }
+        }
       }
     }
   }

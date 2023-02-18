@@ -32,7 +32,7 @@ export const ItemContainer = styled.div`
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-start;
-
+  max-width: 19rem;
   transition: 0.5s;
 
   h1 {
@@ -100,7 +100,7 @@ p {
 >div {
   height: auto;
   padding: 2rem;
-
+  max-width: 100%;
   h1 {
   font-size: 2rem;
 }
