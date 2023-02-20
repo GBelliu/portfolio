@@ -4,8 +4,13 @@ import GlobalStyles from '../styles/global';
 import theme from '../styles/theme';
 import NextNProgress from 'nextjs-progressbar';
 import { Toaster } from 'react-hot-toast';
+import { useEffect } from 'react';
+import TagManager from 'react-gtm-module';
 
 function MyApp({ Component, pageProps }) {
+  useEffect(() => {
+    TagManager.initialize({ gtmId: 'GTM-P6VLS24' });
+  }, []);
   return (
     <ThemeProvider theme={theme}>
       <NextNProgress
