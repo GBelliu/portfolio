@@ -1,69 +1,87 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import toast from 'react-hot-toast';
 import { sendContactMail } from '../../services/sendMail';
+import emailjs from '@emailjs/browser';
 import theme from '../../styles/theme';
 import { FormContainer, Input, TextArea } from './styles';
 export default function Form() {
-  const [nome, setNome] = useState('');
-  const [email, setEmail] = useState('');
-  const [mensagem, setMensagem] = useState('');
+  interface FormProps {
+    nome: string;
+    email: string;
+    mensagem: string;
+  }
+
+  const [data, setData] = useState<FormProps>({
+    nome: '',
+    email: '',
+    mensagem: ''
+  });
 
   const [loading, setLoading] = useState(false);
+  const form = useRef();
 
-  async function handleSubmit(event) {
-    event.preventDefault();
-
-    if (!nome || !email || !mensagem) {
+  const sendEmail = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setLoading(true);
+    if (!data.nome || !data.email) {
       toast('Preencha todos os campos para enviar sua mensagem!', {
         style: {
           background: theme.error,
           color: '#fff'
         }
       });
+      setLoading(false);
       return;
     }
+    emailjs
+      .send(
+        'service_jlddjq7',
+        'template_tnk82jb',
+        data as any,
+        'AY1mdPFklc7lvR3vO'
+      )
+      .then(
+        result => {
+          toast('Mensagem enviado com sucesso!', {
+            style: {
+              background: theme.secondary,
+              color: '#fff'
+            }
+          });
 
-    try {
-      setLoading(true);
-      await sendContactMail(nome, email, mensagem);
-      setNome('');
-      setEmail('');
-      setMensagem('');
+          setLoading(false);
+        },
+        error => {
+          toast(
+            'Ocorreu um erro ao tentar enviar sua mensagem. Tente novamente',
+            {
+              style: {
+                background: theme.error,
+                color: '#fff'
+              }
+            }
+          );
+          setLoading(false);
+        }
+      );
+  };
 
-      toast('Mensagem enviado com sucesso!', {
-        style: {
-          background: theme.secondary,
-          color: '#fff'
-        }
-      });
-    } catch (error) {
-      console.log(error);
-      toast('Ocorreu um erro ao tentar enviar sua mensagem. Tente novamente', {
-        style: {
-          background: theme.error,
-          color: '#fff'
-        }
-      });
-    } finally {
-      setLoading(false);
-    }
-  }
   return (
-    <FormContainer data-aos="fade-up" onSubmit={handleSubmit}>
+    <FormContainer data-aos="fade-up" ref={form} onSubmit={sendEmail}>
       <Input
         placeholder="Nome"
-        value={nome}
-        onChange={({ target }) => setNome(target.value)}
+        value={data.nome}
+        onChange={e => setData({ ...data, nome: e.target.value })}
       />
       <Input
         placeholder="E-mail"
-        value={email}
-        onChange={({ target }) => setEmail(target.value)}
+        value={data.email}
+        onChange={e => setData({ ...data, email: e.target.value })}
       />
       <TextArea
         placeholder="Mensagem"
-        value={mensagem}
-        onChange={({ target }) => setMensagem(target.value)}
+        value={data.mensagem}
+        onChange={e => setData({ ...data, mensagem: e.target.value })}
       />
       <button type="submit" disabled={loading}>
         ENVIAR

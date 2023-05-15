@@ -1,30 +1,26 @@
 import nodemailer from 'nodemailer'
-import {google} from 'googleapis'
+// import {google} from 'googleapis'
 
-const {OAuth2} = google.auth;
+// const {OAuth2} = google.auth;
 
 const email = process.env.MAILADRESS;
 
-const clientId = process.env.CLIENT_ID;
+// const clientId = process.env.CLIENT_ID;
 
-const clientSecret = process.env.CLIENT_SECRET;
-const refreshToken = process.env.REFRESH_TOKEN;
+// const clientSecret = process.env.CLIENT_SECRET;
+// const refreshToken = process.env.REFRESH_TOKEN;
 
-const OAuth2_client = new OAuth2(clientId, clientSecret)
-OAuth2_client.setCredentials({refresh_token: refreshToken})
+// const OAuth2_client = new OAuth2(clientId, clientSecret)
+// OAuth2_client.setCredentials({refresh_token: refreshToken})
 
-const accessToken = OAuth2_client.getAccessToken();
+// const accessToken = OAuth2_client.getAccessToken();
 
-const transporter = nodemailer.createTransport({
-  service: 'gmail',
-  auth: {
-    type: 'OAuth2',
-    user: email,
-    clientId,
-    clientSecret,
-    refreshToken,
-    accessToken
-  }
+let transporter = nodemailer.createTransport({
+  service:"gmail",
+    auth: {
+      user: 'devdomarketing@gmail.com',
+      pass: 'CRggg2002',
+    }
 })
 
 const mailer = ({senderMail, name, text}) => {
