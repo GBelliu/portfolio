@@ -1,6 +1,6 @@
 import React, { useRef, useState } from 'react';
 import toast from 'react-hot-toast';
-import { sendContactMail } from '../../services/sendMail';
+// import { sendContactMail } from '../../services/sendMail';
 import emailjs from '@emailjs/browser';
 import theme from '../../styles/theme';
 import { FormContainer, Input, TextArea } from './styles';
