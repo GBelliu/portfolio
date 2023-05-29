@@ -6,7 +6,7 @@ import NextNProgress from 'nextjs-progressbar';
 import { Toaster } from 'react-hot-toast';
 import { useEffect } from 'react';
 import TagManager from 'react-gtm-module';
-
+import { BsWhatsapp } from 'react-icons/bs';
 function MyApp({ Component, pageProps }) {
   useEffect(() => {
     TagManager.initialize({ gtmId: 'GTM-P6VLS24' });
@@ -24,6 +24,15 @@ function MyApp({ Component, pageProps }) {
       <Toaster position="top-right" />
       <Component {...pageProps} />
       <GlobalStyles />
+      <a
+        href="https://wa.me/5519999900511?text=Ol%C3%A1%21+Tudo+bem%3F"
+        className="whatsapp_float"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Whatsapp"
+      >
+        <BsWhatsapp size={24} />
+      </a>
     </ThemeProvider>
   );
 }

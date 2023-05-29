@@ -51,4 +51,31 @@ export default createGlobalStyle`
       padding: 0 2rem;
     }
   }
+
+  .whatsapp_float {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 30px;
+    right: 30px;
+    background-color: #4da735;
+    color: #fff;
+    border-radius: 50px;
+    text-align: center;
+    font-size: 30px;
+
+    z-index: 101;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  @media screen and (max-width: 767px) {
+    .whatsapp_float {
+      bottom: 20px;
+      right: 20px;
+    }
+    .whatsapp-icon {
+      margin-top: 10px;
+    }
+  }
 `;
