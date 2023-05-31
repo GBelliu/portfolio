@@ -20,7 +20,7 @@ function Experiencias() {
         <ExperienciaItem
           year="2022"
           title="Dev Front-end"
-          description="Projeto de uma ferramenta de automatização do fluxo de antedimento e venda, com React.js, Redux, TypeScript, Bootstrap e outras tecnologias"
+          description="Projeto de uma ferramenta de automatização do fluxo de atendimento e venda, com React.js, Redux, TypeScript, Bootstrap e outras tecnologias"
         />
         <ExperienciaItem
           year="2022 - 2023"
