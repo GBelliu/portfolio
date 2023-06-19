@@ -31,7 +31,7 @@ export function HomeHero() {
               Função: <span className="blue">Dev Web Front-end,</span>
             </div>
             <div>
-              Empresa: <span className="blue">Agência RosaDV</span>
+              Empresa: <span className="blue">#OpenToWork</span>
             </div>
             {'\u007D'}
           </CodeItem>
