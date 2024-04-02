@@ -5,7 +5,7 @@ import { Container } from './styles';
 function Experiencias() {
   return (
     <Container>
-      <SectionTitle title="02 anos" description="de experiência" />
+      <SectionTitle title="03 anos" description="de experiência" />
       <section>
         <ExperienciaItem
           year="2021"
@@ -26,6 +26,11 @@ function Experiencias() {
           year="2022 - 2023"
           title="Dev Front-end"
           description="Criação e gerenciamento de protótipos (Figma), e sites (React.js | Next.js | WordPress) para clientes da agência."
+        />
+        <ExperienciaItem
+          year="2024"
+          title="Dev Web"
+          description="Desenvolvimento de sites usando React.js, Next.js e TypeScript para empresas do Grupo MNGT"
         />
       </section>
     </Container>
