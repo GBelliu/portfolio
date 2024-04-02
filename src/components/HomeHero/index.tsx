@@ -21,7 +21,7 @@ export function HomeHero() {
               Sobrenome: <span className="blue">Bellissimo Barbosa,</span>
             </div>
             <div>
-              Idade: <span className="blue">20 anos</span>
+              Idade: <span className="blue">21 anos</span>
             </div>
             {'\u007D'}
           </CodeItem>
