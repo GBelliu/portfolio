@@ -25,31 +25,29 @@ export const Container = styled.section`
 
   > button {
     background: ${({ theme }) => theme.primary};
-    padding: .8rem 3rem;
-    border-radius: .5rem;
+    padding: 0.8rem 3rem;
+    border-radius: 0.5rem;
     border: none;
-    transition: .5s;
+    transition: 0.5s;
 
     &:hover {
       background: ${({ theme }) => darken(0.05, theme.primary)};
-}
-
-a {
-  text-transform: uppercase;
-  color: #fff;
-  font-weight: 300;
-  font-size: 1.5rem;
-}
-
-@media(max-width: 500px) {
-
-  padding: 1rem;
-
-  a{
-    font-size: 1rem;
-  }
     }
 
+    p {
+      text-transform: uppercase;
+      color: #fff;
+      font-weight: 300;
+      font-size: 1.5rem;
+    }
+
+    @media (max-width: 500px) {
+      padding: 1rem;
+
+      p {
+        font-size: 1rem;
+      }
+    }
   }
 `;
 
@@ -71,7 +69,7 @@ export const ProjetoContainer = styled.div<ProjetoProps>`
       }
     }
 
-    > button a {
+    > button p {
       color: ${({ theme }) => theme.primary};
     }
   }
@@ -82,7 +80,7 @@ export const ProjetoContainer = styled.div<ProjetoProps>`
     background: none;
     border: none;
 
-    a {
+    p {
       color: #fff;
       font-size: 2rem;
       font-weight: 300;
@@ -120,7 +118,6 @@ export const ProjetoContainer = styled.div<ProjetoProps>`
         color: ${({ theme }) => theme.primary};
         font-size: 2.5rem;
         text-shadow: -4px 5px 22px #11172b;
-
       }
       h2 {
         color: ${({ theme }) => theme.secondary};
@@ -207,7 +204,7 @@ export const ProjetoContainer = styled.div<ProjetoProps>`
   @media (max-width: 450px) {
     > button {
       height: auto;
-      a {
+      p {
         font-size: 1.5rem;
         gap: 0.8rem;
       }

@@ -1,10 +1,9 @@
 import { GetStaticPaths, GetStaticProps } from 'next';
-import Prismic from '@prismicio/client';
 import { useRouter } from 'next/router';
 import Head from 'next/head';
+import { getPrismicClient } from '../../../services/prismic';
 import BannerProjeto from '../../../components/BannerProjeto';
 import { Header } from '../../../components/Header';
-import { getPrismicClient } from '../../../services/prismic';
 import { ProjetoContainer } from '../../../styles/ProjetoStyles';
 import LoadingScreen from '../../../components/LoadingScreen';
 
@@ -58,12 +57,10 @@ export default function Projeto({ projeto }: ProjetoProps) {
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const prismic = getPrismicClient();
-  const projetos = await prismic.query([
-    Prismic.predicates.at('document.type', 'teste')
-  ]);
+  const client = getPrismicClient();
+  const projetos = await client.getAllByType('teste');
 
-  const paths = projetos.results.map(projeto => ({
+  const paths = projetos.map(projeto => ({
     params: {
       slug: projeto.uid
     }
@@ -86,7 +83,7 @@ export const getStaticProps: GetStaticProps = async context => {
     title: response.data.title,
     type: response.data.type,
     description: response.data.description,
-    link: response.data.link.url,
+    link: response.data.link,
     thumbnail: response.data.thumbnail.url
   };
 

@@ -1,10 +1,10 @@
+/* eslint-disable react/jsx-no-comment-textnodes */
 import { Container, TextContainer, InfosContainer, CodeItem } from './styles';
-import picture from '../../assets/foto2.png';
 
 export function HomeHero() {
   return (
     <Container data-aos="fade-up">
-      <img src={picture} alt="Guilherme" />
+      <img src="/botasergipana.png" alt="Guilherme" />
       <div>
         <TextContainer>
           <h1>Olá</h1>
@@ -21,7 +21,7 @@ export function HomeHero() {
               Sobrenome: <span className="blue">Bellissimo Barbosa,</span>
             </div>
             <div>
-              Idade: <span className="blue">20 anos</span>
+              Idade: <span className="blue">22 anos</span>
             </div>
             {'\u007D'}
           </CodeItem>
@@ -31,7 +31,7 @@ export function HomeHero() {
               Função: <span className="blue">Dev Web Front-end,</span>
             </div>
             <div>
-              Empresa: <span className="blue">#OpenToWork</span>
+              Empresa: <span className="blue">Desperta Energia</span>
             </div>
             {'\u007D'}
           </CodeItem>

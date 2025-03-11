@@ -22,7 +22,7 @@ ul {
 `;
 
 export const NavLinkContainer = styled.li<NavLinkProps>`
-a {
+p {
   text-transform: uppercase;
   color: ${props => props.isActive ? props.theme.primary : props.theme.textHighlight};
   transition: .5s;

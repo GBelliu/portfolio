@@ -1,0 +1,6 @@
+{
+  "apiEndpoint": "https://portfoliogbelliu.prismic.io/api/v2",
+  "repositoryName": "portfoliogbelliu",
+  "adapter": "@slicemachine/adapter-next",
+  "libraries": ["./slices"]
+}

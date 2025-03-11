@@ -22,10 +22,10 @@ export const Container = styled.section<ContainerProps>`
     overflow: hidden;
 
     &:hover {
-      border-color:  ${({ theme }) => theme.primary};
+      border-color: ${({ theme }) => theme.primary};
 
       > div.overlay {
-        opacity: .5;
+        opacity: 0.5;
       }
     }
 
@@ -49,9 +49,9 @@ export const Container = styled.section<ContainerProps>`
       bottom: 0;
       width: 100%;
       height: 100%;
-      background:  ${({ theme }) => theme.gradient};
-      opacity: .7;
-      transition: .5s;
+      background: ${({ theme }) => theme.gradient};
+      opacity: 0.7;
+      transition: 0.5s;
     }
   }
 `;

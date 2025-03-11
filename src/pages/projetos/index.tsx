@@ -1,12 +1,10 @@
 import React from 'react';
+import { GetStaticProps } from 'next';
+import Head from 'next/head';
+import { getPrismicClient } from '../../services/prismic';
 import { Header } from '../../components/Header';
 import ProjetoItem from '../../components/ProjetoItem';
 import { ProjetosContainer } from '../../styles/ProjetosStyles';
-
-import { GetStaticProps } from 'next';
-import Prismic from '@prismicio/client';
-import { getPrismicClient } from '../../services/prismic';
-import Head from 'next/head';
 
 interface IProjeto {
   slug: string;
@@ -57,20 +55,21 @@ export default function Projetos({ projetos }: ProjetoProps) {
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const prismic = getPrismicClient();
+  const client = getPrismicClient();
 
-  const projectResponse = await prismic.query(
-    [Prismic.Predicates.at('document.type', 'teste')],
+  const projectResponse = await client.getAllByType('teste', {
+    orderings: {
+      field: 'document.first_publication_date',
+      direction: 'desc'
+    }
+  });
 
-    { orderings: '[document.first_publication_date desc]' }
-  );
-
-  const projetos = projectResponse.results.map(projeto => ({
+  const projetos = projectResponse.map(projeto => ({
     slug: projeto.uid,
     title: projeto.data.title,
     type: projeto.data.type,
     description: projeto.data.description,
-    link: projeto.data.link.url,
+    link: projeto.data.link,
     thumbnail: projeto.data.thumbnail.url
   }));
 

@@ -1,10 +1,14 @@
-import Prismic from '@prismicio/client'
-import {DefaultClient} from '@prismicio/client/types/client'
-export function getPrismicClient(req?: unknown): DefaultClient {
-  const prismic = Prismic.client(process.env.PRISMIC_API_ENDPOINT, {
-    req,
-    accessToken: process.env.PRISMIC_ACCESS_TOKEN
+import * as prismic from '@prismicio/client';
+import { IncomingMessage } from 'http';
+import sm from '../../slicemachine.config.json';
+
+export const { repositoryName } = sm;
+
+export function getPrismicClient(req?: IncomingMessage) {
+  const client = prismic.createClient(repositoryName, {
+    accessToken: process.env.PRISMIC_ACCESS_TOKEN,
+    fetchOptions: req ? { headers: { cookie: req.headers.cookie } } : undefined
   });
 
-  return prismic;
+  return client;
 }
