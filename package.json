@@ -17,6 +17,7 @@
     "@prismicio/slice-simulator-react": "^0.2.2",
     "aos": "^2.3.4",
     "axios": "^1.3.3",
+    "babel-plugin-styled-components": "^2.1.4",
     "cross-env": "^7.0.3",
     "googleapis": "^111.0.0",
     "next": "13.4.0",
@@ -28,7 +29,7 @@
     "react-gtm-module": "^2.0.11",
     "react-hot-toast": "^2.4.0",
     "react-icons": "^4.6.0",
-    "styled-components": "^5.3.6"
+    "styled-components": "^6.1.15"
   },
   "devDependencies": {
     "@prismicio/types": "^0.2.4",

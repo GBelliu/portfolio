@@ -1,12 +1,12 @@
-import { ThemeProvider } from 'styled-components';
-
-import GlobalStyles from '../styles/global';
-import theme from '../styles/theme';
 import NextNProgress from 'nextjs-progressbar';
 import { Toaster } from 'react-hot-toast';
 import { useEffect } from 'react';
 import TagManager from 'react-gtm-module';
 import { BsWhatsapp } from 'react-icons/bs';
+import { ThemeProvider } from 'styled-components';
+import theme from '../styles/theme';
+import GlobalStyles from '../styles/global';
+
 function MyApp({ Component, pageProps }) {
   useEffect(() => {
     TagManager.initialize({ gtmId: 'GTM-P6VLS24' });
