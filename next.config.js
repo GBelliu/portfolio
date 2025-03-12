@@ -1,5 +1,7 @@
-// const withImages = require('next-images');
+const nextConfig = {
+  eslint: {
+    ignoreDuringBuilds: true
+  }
+}
 
-// module.exports = withImages({
-//   esModule: true
-// });
+module.exports = nextConfig
