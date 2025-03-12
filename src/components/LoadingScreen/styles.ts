@@ -1,14 +1,13 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const Container = styled.section`
-display: flex;
-align-items: center;
-justify-content: center;
-width: 100vw;
-height: 100vh;
-position: fixed;
-
-`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+`;
 
 export const SpinnerContainer = styled.div`
   width: 5rem;

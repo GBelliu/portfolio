@@ -2,8 +2,8 @@ import React from 'react';
 import { AiFillHtml5 } from 'react-icons/ai';
 import { FaCss3Alt, FaReact } from 'react-icons/fa';
 import { IoLogoJavascript } from 'react-icons/io5';
-import { SiNextdotjs } from 'react-icons/si';
-import { SiTypescript } from 'react-icons/si';
+import { SiNextdotjs, SiTypescript } from 'react-icons/si';
+
 import SectionTitle from '../SectionTitle';
 import ConhecimentoItem from './ConhecimentoItem';
 import { Container } from './styles';

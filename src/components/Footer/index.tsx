@@ -1,11 +1,12 @@
 import React from 'react';
-import { Container } from './styles';
 import {
   AiFillInstagram,
   AiOutlineGithub,
   AiFillLinkedin
 } from 'react-icons/ai';
 import { RiTwitchFill } from 'react-icons/ri';
+import { Container } from './styles';
+
 export default function Footer() {
   function handleRedirect(url: string) {
     window.open(url);

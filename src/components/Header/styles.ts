@@ -6,29 +6,32 @@ interface NavLinkProps {
 }
 
 export const Container = styled.header`
-width: 100%;
-display: flex;
-align-items: center;
-justify-content: center;
-height: 4rem;
-border-bottom: 1px solid ${({theme}) => theme.background};
-
-ul {
+  width: 100%;
   display: flex;
-  gap: 2rem;
   align-items: center;
-}
+  justify-content: center;
+  height: 4rem;
+  border-bottom: 1px solid ${({ theme }) => theme.background};
 
+  ul {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+  }
 `;
 
 export const NavLinkContainer = styled.li<NavLinkProps>`
-p {
-  text-transform: uppercase;
-  color: ${props => props.isActive ? props.theme.primary : props.theme.textHighlight};
-  transition: .5s;
+  p {
+    text-transform: uppercase;
+    color: ${props =>
+      props.isActive ? props.theme.primary : props.theme.textHighlight};
+    transition: 0.5s;
 
-  &:hover {
-    color: ${props => props.isActive ? lighten(0.2, props.theme.primary) : lighten(0.2, props.theme.textHighlight)}
+    &:hover {
+      color: ${props =>
+        props.isActive
+          ? lighten(0.2, props.theme.primary)
+          : lighten(0.2, props.theme.textHighlight)};
+    }
   }
-}
-`
+`;

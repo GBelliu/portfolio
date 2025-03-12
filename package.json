@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "slicemachine": "start-slicemachine"
+    "slicemachine": "start-slicemachine",
+    "lint": "eslint --fix --ext .js,.jsx ."
   },
   "dependencies": {
     "@emailjs/browser": "^3.11.0",

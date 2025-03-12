@@ -16,3 +16,7 @@ function SectionTitle({ title, description }: SectionTitleProps) {
 }
 
 export default SectionTitle;
+
+SectionTitle.defaultProps = {
+  description: ''
+};

@@ -4,6 +4,7 @@ import toast from 'react-hot-toast';
 import emailjs from '@emailjs/browser';
 import theme from '../../styles/theme';
 import { FormContainer, Input, TextArea } from './styles';
+
 export default function Form() {
   interface FormProps {
     nome: string;
@@ -41,7 +42,7 @@ export default function Form() {
         'AY1mdPFklc7lvR3vO'
       )
       .then(
-        result => {
+        () => {
           toast('Mensagem enviado com sucesso!', {
             style: {
               background: theme.secondary,
@@ -51,7 +52,7 @@ export default function Form() {
 
           setLoading(false);
         },
-        error => {
+        () => {
           toast(
             'Ocorreu um erro ao tentar enviar sua mensagem. Tente novamente',
             {

@@ -1,6 +1,9 @@
 // import Prismic from '@prismicio/client';
 import Aos from 'aos';
 import 'aos/dist/aos.css';
+import { GetStaticProps } from 'next';
+import { useEffect } from 'react';
+import Head from 'next/head';
 import { HomeContainer } from '../styles/HomeStyles';
 import { Header } from '../components/Header';
 import { HomeHero } from '../components/HomeHero';
@@ -9,10 +12,7 @@ import Projetos from '../components/Projetos';
 import Conhecimentos from '../components/Conhecimentos';
 import FormContato from '../components/FormContato';
 import Footer from '../components/Footer';
-// import { getPrismicClient } from '../services/prismic';
-import { GetStaticProps } from 'next';
-import { useEffect } from 'react';
-import Head from 'next/head';
+import { getPrismicClient } from '../services/prismic';
 
 interface IProjeto {
   slug: string;
@@ -55,9 +55,9 @@ export default function Home({ projetos }: HomeProps) {
       <main className="container">
         <HomeHero />
         <Experiencias />
-        {/* <Projetos projetos={projetos} /> */}
+        <Projetos projetos={projetos} />
         <Conhecimentos />
-        {/* <FormContato /> */}
+        <FormContato />
       </main>
       <Footer />
     </HomeContainer>
@@ -65,23 +65,24 @@ export default function Home({ projetos }: HomeProps) {
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  // const prismic = getPrismicClient();
+  const client = getPrismicClient();
 
-  // const projectResponse = await prismic.query(
-  //   [Prismic.Predicates.at('document.type', 'teste')],
+  const projectResponse = await client.getAllByType('teste', {
+    orderings: {
+      field: 'document.first_publication_date',
+      direction: 'desc'
+    }
+  });
 
-  //   { orderings: '[document.first_publication_date desc]' }
-  // );
+  const projetos = projectResponse.map(projeto => ({
+    slug: projeto.uid,
+    title: projeto.data.title,
+    type: projeto.data.type,
+    description: projeto.data.description,
+    link: projeto.data.link,
+    thumbnail: projeto.data.thumbnail.url
+  }));
 
-  // const projetos = projectResponse.results.map(projeto => ({
-  //   slug: projeto.uid,
-  //   title: projeto.data.title,
-  //   type: projeto.data.type,
-  //   description: projeto.data.description,
-  //   link: projeto.data.link.url,
-  //   thumbnail: projeto.data.thumbnail.url
-  // }));
-  const projetos = []
   return {
     props: {
       projetos

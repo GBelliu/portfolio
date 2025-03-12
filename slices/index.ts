@@ -3,5 +3,5 @@
 import dynamic from 'next/dynamic';
 
 export const components = {
-  projeto1: dynamic(() => import('./Projeto1'))
+  projeto2: dynamic(() => import('./Projeto2'))
 };
