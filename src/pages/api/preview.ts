@@ -7,9 +7,9 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
-  const client = createClient({ req });
+  const client = createClient();
 
   setPreviewData({ req, res });
 
-  return await redirectToPreviewURL({ req, res, client });
+  return redirectToPreviewURL({ req, res, client });
 }
